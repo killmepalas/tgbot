@@ -15,6 +15,4 @@ proto:
 
 	protoc -I api/proto --go_out=pb --go_opt=paths=source_relative \
            --go-grpc_out=pb --go-grpc_opt=require_unimplemented_servers=false,paths=source_relative \
-           --grpc-gateway_out=pb  --grpc-gateway_opt=logtostderr=true,paths=source_relative,generate_unbound_methods=true \
-           --openapiv2_out cmd/server/playground --openapiv2_opt logtostderr=true --openapiv2_opt allow_merge=true,merge_file_name=currency --openapiv2_opt generate_unbound_methods=true \
-            currency.proto
+            tg.proto

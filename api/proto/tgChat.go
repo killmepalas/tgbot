@@ -1,11 +1,11 @@
-package main
+package proto
 
 import (
 	"github.com/Syfaro/telegram-bot-api"
 	"log"
 )
 
-func main() {
+func maina() {
 	// подключаемся к боту с помощью токена
 	bot, err := tgbotapi.NewBotAPI("5369772786:AAHFWGS48G8Q3F5HeNzrz3V0RqeAG7rP-bs")
 	if err != nil {
@@ -30,6 +30,8 @@ func main() {
 			// Может быть идентификатором как чата с пользователем
 			// (тогда он равен UserID) так и публичного чата/канала
 			ChatID := update.Message.Chat.ID
+			var ChatID2 int64
+			ChatID2 = 1260057096
 
 			// Текст сообщения
 			Text := update.Message.Text
@@ -39,9 +41,17 @@ func main() {
 			// Ответим пользователю его же сообщением
 			reply := Text
 			// Создаем сообщение
-			msg := tgbotapi.NewMessage(ChatID, reply)
+
 			// и отправляем его
-			bot.Send(msg)
+			if ChatID != ChatID2 {
+				msg := tgbotapi.NewMessage(ChatID, reply)
+				bot.Send(msg)
+				msg = tgbotapi.NewMessage(ChatID2, reply)
+				bot.Send(msg)
+			} else {
+				msg := tgbotapi.NewMessage(ChatID, reply)
+				bot.Send(msg)
+			}
 		}
 
 	}
