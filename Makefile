@@ -15,4 +15,5 @@ proto:
 
 	protoc -I api/proto --go_out=pb --go_opt=paths=source_relative \
            --go-grpc_out=pb --go-grpc_opt=require_unimplemented_servers=false,paths=source_relative \
+           --grpc-gateway_out=pb  --grpc-gateway_opt=logtostderr=true,paths=source_relative,generate_unbound_methods=true \
             tg.proto

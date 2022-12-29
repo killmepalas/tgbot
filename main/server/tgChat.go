@@ -1,4 +1,4 @@
-package proto
+package main
 
 import (
 	"github.com/Syfaro/telegram-bot-api"

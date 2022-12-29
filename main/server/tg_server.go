@@ -21,10 +21,12 @@ func (G GRPCServer) Echo(ctx context.Context, message *tgpb.Message) (*tgpb.Mess
 	bot.Debug = true
 	log.Printf("Authorized on account %s", bot.Self.UserName)
 
-	var ChatID int64
+	//var ChatID int64
 	//var ChatID2 int64
 	//ChatID2 = 1023548448
-	ChatID = 1260057096
+	//ChatID = 1260057096
+	var ChatIDArtem int64
+	ChatIDArtem = 1789285373
 
 	//чтение обновлений из канала
 	log.Printf("[%s] %d %s", message)
@@ -32,8 +34,7 @@ func (G GRPCServer) Echo(ctx context.Context, message *tgpb.Message) (*tgpb.Mess
 	// Ответим пользователю его же сообщением
 	reply := message.Message
 	// Создаем сообщение
-	msg := tgbotapi.NewMessage(ChatID, reply)
-	// и отправляем его
+	msg := tgbotapi.NewMessage(ChatIDArtem, reply)
 	bot.Send(msg)
 
 	return &tgpb.Message{}, nil

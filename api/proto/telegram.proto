@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "./telegram/telegrampb";
+package api;
+
+service Telegram{
+  rpc NewBotAPI(Token) returns (BotAPI);
+}
+
+message Token{
+  string token = 1;
+}
+
+message BotAPI{
+  string Token = 1;
+  bool Debug = 2;
+}
